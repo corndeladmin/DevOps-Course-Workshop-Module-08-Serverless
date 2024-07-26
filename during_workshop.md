@@ -132,12 +132,12 @@ Before we worry about hosting the function on Azure itself we are going to test 
 - Run command:  `func start`
 > Note that the Azure Functions tools are only compatible with the 64-bit version of Python. If you see this error `ImportError: cannot import name 'cygrpc'`, you are using a 32-bit version.
 > If you face an issue with `func start` hanging, try running `func start --verbose` for more info. You may find removing the `extensionBundle` section of your `host.json` file fixes it. 
-- Towards the end of the output it should give you a URL. Copy this into a browser and append the query string `?name=<YOUR_NAME>` (so the full URL looks something like `http://localhost:7071/api/HttpEndpoint?name=Alice`)
+- Towards the end of the output it should give you a URL. Copy this into a browser and append the query string `?name=<YOUR_NAME>` (so the full URL looks something like `http://localhost:7071/api/AddSubtitle?name=Alice`)
 - You should hopefully see a message returned from the function
 
 #### Writing Python Code for Azure Functions
 
-Now that we have it running locally, we want to replace the code in the default function with something similar to the dummy code that we are using in our existing application. However, we will change it so we can send the text that we want to translate to it. Change \_\_init\_\_.py to look like the following:
+Now that we have it running locally, we want to replace the code in the default function with something similar to the dummy code that we are using in our existing application. However, we will change it so we can send the text that we want to translate to it. Change function_app.py to look like the following:
 
 ``` Python
 import logging
