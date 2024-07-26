@@ -275,7 +275,9 @@ Without a subscription key we're limited to a throttled connection; if we want t
 
 ## Part 6 (Stretch) - Try out facial recognition
 
-Azure's cognitive services offer many other services, including a facial recognition API. We will set up a new Logic App to catch uploaded images & send them to a Face API instance and we'll store the estimated ages of the subjects.
+> This exercise requires access to the "Code View" of your logic app - check that you can access that for one of your existing apps before starting.
+
+Azure's cognitive services offer many other services, including a facial recognition API. We will set up a new Logic App to catch uploaded images & send them to a Face API instance and we'll store the location of any faces in the image.
 
 You'll need to consider:
 * Where you'll store the images
@@ -307,9 +309,26 @@ https://<your_storage_account_name>.blob.core.windows.net@{triggerBody()?['Path'
 </details>
 </details>
 
+Try running the app now by uploading an image to your blob. Does the run report success?
+
+<details> <summary> Hint: Forbidden </summary>
+
+Microsoft have [tightened access to this API](https://learn.microsoft.com/en-us/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext), to prevent potential abuse. However, we _can_ detect faces without applying for permission.
+
+You may need to switch to the Logic App Code View in order to make the change to only request face location, but ensure the `queries` block isn't requesting any blocked information:
+```json
+"queries": {
+    "returnFaceAttributes": "",
+    "returnFaceId": "false",
+    "returnFaceLandmarks": "false"
+}
+```
+
+</details>
+
 Finally, we should do something with this information! For now, we'll just store that information in our table storage. Add a new Table to your Storage Account called "FaceInformation", and update your Logic App to add an entry to that table for each face recognised including:
 * The image name
-* The estimated age of the identified subject
+* The estimated location of the face
 
 Try out your application - upload some photos with & without people in, and see how well it handles it. Do you agree with its assessments?
 
