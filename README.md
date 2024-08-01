@@ -22,8 +22,7 @@ Also, make sure you have installed the following:
   * We recommend Version 3.9 (up to 3.11); check this by running `python --version`
 * [Azure Functions Core Tools version 4.x.](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-run-local#v2)
   * The Function Tools are not required if you are following the alternative exercise
-  * :warning: At time of writing, Azure function tools for Python works with Python 3.7-3.11 on x86(/64) only, not on ARM for M1 Macs
-    * [GitHub issue for M1 Macs](https://github.com/Azure/azure-functions-python-worker/issues/915)
+  * :warning: At time of writing, Azure function tools for Python works with Python 3.7-3.11 on x86(/64) only
     * The workshop can also be done using [GitPod](https://gitpod.io/#https://github.com/CorndelAdmin/DevOps-Course-Workshop-Module-08-Serverless)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)

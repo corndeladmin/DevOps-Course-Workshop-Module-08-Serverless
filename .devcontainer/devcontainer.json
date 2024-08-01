@@ -29,7 +29,8 @@
 	"extensions": [
 		"ms-python.python",
 		"ms-python.vscode-pylance",
-		"rangav.vscode-thunder-client"
+		"rangav.vscode-thunder-client",
+		"ms-azuretools.vscode-azurefunctions"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
